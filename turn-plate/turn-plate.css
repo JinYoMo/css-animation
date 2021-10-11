@@ -1,0 +1,97 @@
+.body-wrap {
+  width: 350px;
+  margin: 0 auto;
+}
+.body-wrap .top-indicate {
+  width: 50px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 0 50px 50px 0;
+  background-image: linear-gradient(120deg, #f6d365, #f6d365 25px, transparent 25px);
+  transform: rotate(-15deg);
+  position: relative;
+  left: 21px;
+  top: 140px;
+}
+.body-wrap #piece_wrap {
+  width: 300px;
+  height: 300px;
+  margin: 100px auto auto 173px;
+  transform-origin: left center;
+  transition: transform 16s cubic-bezier(0, 0.47, 0.31, 1.03);
+  position: relative;
+}
+.body-wrap #piece_wrap .piece {
+  width: 150px;
+  height: 300px;
+  border-radius: 0 150px 150px 0;
+  transform-origin: left center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.body-wrap #piece_wrap .piece span {
+  margin-left: 16px;
+  margin-top: 20px;
+  display: inline-block;
+  color: #fff;
+}
+.body-wrap #piece_wrap .piece:nth-child(2n) {
+  background-image: linear-gradient(120deg, #f6d365, #f6d365 75px, transparent 75px);
+}
+.body-wrap #piece_wrap .piece:nth-child(2n+1) {
+  background-image: linear-gradient(120deg, #ff5858, #ff5858 75px, transparent 75px);
+}
+.body-wrap #piece_wrap .piece-0 {
+  transform: rotate(-30deg);
+}
+.body-wrap #piece_wrap .piece-1 {
+  transform: rotate(-60deg);
+}
+.body-wrap #piece_wrap .piece-2 {
+  transform: rotate(-90deg);
+}
+.body-wrap #piece_wrap .piece-3 {
+  transform: rotate(-120deg);
+}
+.body-wrap #piece_wrap .piece-4 {
+  transform: rotate(-150deg);
+}
+.body-wrap #piece_wrap .piece-5 {
+  transform: rotate(-180deg);
+}
+.body-wrap #piece_wrap .piece-6 {
+  transform: rotate(-210deg);
+}
+.body-wrap #piece_wrap .piece-7 {
+  transform: rotate(-240deg);
+}
+.body-wrap #piece_wrap .piece-8 {
+  transform: rotate(-270deg);
+}
+.body-wrap #piece_wrap .piece-9 {
+  transform: rotate(-300deg);
+}
+.body-wrap #piece_wrap .piece-10 {
+  transform: rotate(-330deg);
+}
+.body-wrap #piece_wrap .piece-11 {
+  transform: rotate(-360deg);
+}
+.body-wrap .piece-btn {
+  margin-top: 50px;
+  text-align: center;
+}
+.body-wrap .piece-btn .start {
+  width: 80px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #fff;
+  background: #ff5858;
+  border: none;
+  border-radius: 20px;
+}
+.mt20 {
+  margin-top: 20px;
+}

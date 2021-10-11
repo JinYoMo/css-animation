@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style> 
+    #watermark-box { 
+        position: fixed; 
+        top: 0; 
+        bottom: 0; 
+        left: 0; 
+        right: 0; 
+        font-size: 24px; 
+        font-weight: 700; 
+        display: flex; 
+        flex-wrap: wrap; 
+        overflow: hidden; 
+        user-select: none; 
+        pointer-events: none; 
+        opacity: 0.1; 
+        z-index: 999;
+    } 
+    .watermark { 
+        text-align: center; 
+    } 
+</style> 
+<body>
+    <div>
+        <h2>机密内容- 机密内容- 机密内容- 机密内容- 机密内容- 机密内容-</h2>
+        <br />
+        <h2>机密内容- 机密内容- 机密内容- 机密内容- 机密内容- 机密内容-</h2>
+        <br />
+        <h2 onclick="alert(1)">机密内容- 机密内容- 机密内容- 机密内容- 机密内容- 机密内容-</h2>
+        <br />
+    </div>
+    <div id="watermark-box"></div>
+</body>
+<script>
+    /** 
+    *  前端水印实现方案——防止信息泄露和知识产权被侵犯
+    *  方法一:重复的dom元素覆盖实现
+    *  方法二:canvas输出背景图 
+    */
+    function doWaterMark(width,height,content){
+        let box=document.getElementById('watermark-box')
+        let boxWidth=box.clientWidth,
+            boxHeight=box.clientHeight;
+        for(let i=0; i<Math.floor(boxHeight/height); i++){
+            for(let j=0; j<Math.floor(boxWidth/width); j++){
+                let next=document.createElement("div")
+                next.setAttribute("class","watermark")
+                next.style.width= width + 'px'
+                next.style.height= height + 'px'
+                next.innerText = content
+                box.appendChild(next)
+            }
+        }
+    }
+    window.onload=doWaterMark(300,100,'水印123')
+</script>
+</html>

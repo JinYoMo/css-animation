@@ -1,0 +1,70 @@
+.body-wrap{
+    width: 350px;
+    margin: 0 auto;
+    .top-indicate{
+        width: 50px;
+        height: 100px;
+        margin: 0 auto;
+        border-radius: 0 50px 50px 0; //将方形变为半圆
+        background-image: linear-gradient(120deg,#f6d365,#f6d365 25px,transparent 25px);
+        transform: rotate(-15deg);
+        position: relative;
+        left: 21px;
+        top:140px;
+    }
+    #piece_wrap{
+        width: 300px;
+        height: 300px;
+        margin: 100px auto auto 173px;
+        transform-origin: left center;
+        transition: transform 16s cubic-bezier(0,.47,.31,1.03);
+        position: relative;
+        .piece{
+            width: 150px;
+            height: 300px;
+            border-radius: 0 150px 150px 0; //将方形变为半圆
+            transform-origin: left center;  //每个扇形以一个中心点渲染
+            position: absolute;
+            top: 0;
+            left: 0;
+            span{
+                margin-left: 16px;
+                margin-top: 20px;
+                display: inline-block;
+                color: #fff;
+            }
+            //css渐变实现扇形区域
+            &:nth-child(2n){
+                background-image: linear-gradient(120deg,#f6d365,#f6d365 75px,transparent 75px);
+            }
+            &:nth-child(2n+1){
+                background-image: linear-gradient(120deg,#ff5858,#ff5858 75px,transparent 75px);
+            }
+        }
+        //less循环实现12个扇形组成一个圆
+        .loop(@n) when (@n >= 0){
+            .loop(@n - 1);
+            .piece-@{n}{
+                transform: rotate(-30deg * (@n+1));
+            }
+        }
+        .loop(11);
+    }
+    .piece-btn{
+        margin-top: 50px;
+        text-align: center;
+        .start{
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            color: #fff;
+            background: #ff5858;
+            border: none;
+            border-radius: 20px;
+        }
+    }
+}
+.mt20{
+    margin-top: 20px;
+}

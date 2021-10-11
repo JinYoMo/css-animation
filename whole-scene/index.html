@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+    <title>酷炫web全景</title>
+</head>
+<body>
+    <div id="wrap" style="position: absolute;z-index: 0;top:0;bottom: 0;left: 0;right: 0;width: 100%;height: 100%;overflow: hidden;"></div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/three.js/r128/three.js"></script>
+<script>
+    /**  
+     * 具体步骤如下：
+        第一步：创建一个场景（Scene）
+        第二步：创建一个球体，并将全景图片贴到球体的内表面，放入场景中
+        第四步：创建一个透视投影相机将camera拉到球体的中心，相机观看球体内表面
+        第五步：通过修改经纬度来，改变相机观察的点
+    */
+    const width = window.innerWidth,height = window.innerHeight  //屏幕宽高
+    const radius = 50  //球体半径
+    //第一步：创建场景
+    const scene = new THREE.Scene()
+
+    //第二步 绘制一个球体
+    const geometry=new THREE.SphereBufferGeometry(radius,32,32)
+    geometry.scale(-1,1,1) //球面反转，由外表面改成内表面贴图
+    const material=new THREE.MeshBasicMaterial({
+        map:new THREE.TextureLoader().load('./1.jpeg')  //上面的全景图片
+    })
+    const mesh = new THREE.Mesh(geometry,material)
+    scene.add(mesh)
+
+    //第三步 创建相机，并确定相机位置
+    const camera = new THREE.PerspectiveCamera(75,width / height,0.1,100)
+    camera.position.x=0;   //确定相机位置移到球心
+    camera.position.y=0;
+    camera.position.z=0;
+
+    camera.target = new THREE.Vector3(radius,0,0)  //设置一个对焦点
+
+    //第四步：拍照并绘制到canvas
+    const renderer=new THREE.WebGLRenderer()
+    renderer.setPixelRatio(window.devicePixelRatio)
+    renderer.setSize(width,height)  //设置照片大小
+
+    document.querySelector('#wrap').appendChild(renderer.domElement) //绘制canvas
+    renderer.render(scene,camera)
+
+    let lat = 0,lon=0
+    function render(){
+        lon +=0.003  //每帧加一个偏移量
+        //改变相机的对焦点
+        //球面点点在Tree.js中点坐标
+        // X = R * cos（lat）* sin( lon )
+        // Y = R * sin( lat )
+        // Z = R * cos( lat )*cos( lon )
+        camera.target.x = radius * Math.cos(lat) * Math.cos(lon)
+        camera.target.y = radius * Math.sin(lat)
+        camera.target.z = radius * Math.cos(lat) * Math.sin(lon)
+        camera.lookAt(camera.target) //对焦
+
+        renderer.render(scene,camera)
+        requestAnimationFrame(render)
+    }
+    render()
+</script>
+</html>

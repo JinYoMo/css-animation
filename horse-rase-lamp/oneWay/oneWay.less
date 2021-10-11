@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.title{
+    width: 100%;
+    margin-top: 30px;
+    padding:0 0 0 40px;
+    line-height: 40px;
+}
+//JS方式
+.box{
+    margin-left: 100px;
+    margin-top: 30px;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 300px;
+    background: #000;
+    .content p{
+        display: inline-block;
+    }
+    .content p.padding{
+        padding-right: 300px;
+    }
+}
+//HTML方式
+marquee{
+    margin-left: 100px;
+    margin-top: 30px;
+}
+// CSS方式
+.wrap{
+    margin: 30px 0 0 100px;
+    background: #ddd;
+    font-size: 0;
+    /** 固宽，溢出隐藏*/
+    width: 300px;
+    height: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    /** 相对定位 */
+    position: relative;
+    .cont{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        /** 关键*/
+        width: 200%;
+        transition: left 10s linear;
+    }
+    .txt{
+        display: inline-block;
+        font-size: 18px;
+        line-height: 30px;
+        margin-top: 5px;
+        color: #fff;
+        background: #000;
+    }
+}
+

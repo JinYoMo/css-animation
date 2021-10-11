@@ -1,0 +1,279 @@
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    body{
+        padding:50px;
+        box-sizing: border-box;
+    }
+    ul{
+      width: 100%;
+    }
+    ul li {
+      margin-bottom: 20px;
+    }
+    ul li p.title{
+      color: #000;
+      font-size: 16px;
+    }
+    /* 知识点：outline */
+    .dash-border{
+        width: 200px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background: red;
+        outline: 1px dashed #000;
+        outline-offset: -10px;
+    }
+    /* 知识点：box-shadow */
+    .radius-border{
+        width: 200px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 0 10px grey;
+    }
+    /* 知识点：linear-gradient repeating-linear-gradient */
+    .progress-bar{
+        width: 200px;
+        height: 20px;
+        margin-bottom: 10px;
+        box-shadow:inset 0 0 3px #555;
+    }
+    .progress-bar:last-child{
+        margin-bottom: 0;
+    }
+    .progress-bar1{
+        background: linear-gradient(to right,#fb3 50%,#58a 0);
+        background-size: 40px 100%;
+    }
+    .progress-bar2{
+        background: linear-gradient(45deg,#fb3 25%,#58a 0,#58a 50%,#fb3 0,#fb3 75%,#58a 0);
+        background-size: 40px 40px;
+    }
+    .progress-bar3{
+        background: repeating-linear-gradient(60deg,#fb3,#fb3 15px,#58a 0,#58a 30px);
+    }
+    /* 知识点：linear-gradient repeating-linear-gradient */
+    .black-theme{
+        background: #000;
+    }
+    .bg-grid{
+        width: 200px;
+        height: 200px;
+        margin-top: 20px;
+        background-image: linear-gradient(rgba(255,255,255,1) 2px,transparent 0),
+            linear-gradient(to right,rgba(255,255,255,1) 2px,transparent 0),
+            linear-gradient(rgba(255,255,255,.2) 1px,transparent 0),
+            linear-gradient(to right,rgba(255,255,255,.2) 1px,transparent 0);
+        background-position: -50px -50px;
+        background-size: 100px 100px,100px 100px,100% 10px,10px 100%;
+    }
+    .animate-grid{
+        animation: move-grid 6s linear infinite;
+    }
+    @keyframes move-grid {
+        0%{
+            background-position: -50px -50px;
+        }
+        30%{
+            background-position: -100px -100px;
+        }
+        60%{
+            background-position: -100px -150px;
+        }
+        100%{
+            background-position: -50px -50px;
+        }
+    }
+    /* 知识点：radial-gradient */
+    .bg-dot{
+        width: 200px;
+        height: 50px;
+        margin-top: 20px;
+        background-image: radial-gradient(circle,#0cf 15px,transparent),
+            radial-gradient(circle,red 15px,transparent),
+            radial-gradient(circle,yellow 15px,transparent),
+            radial-gradient(circle,green 15px,transparent);
+        background-repeat: no-repeat;
+        background-position: 0 0,50px 0,100px 0,150px 0,200px 0;
+        background-size: 50px 50px;
+    }
+    .animate-dot{
+        animation: move-dot 8s linear infinite;
+    }
+    .animate-dot2{
+        animation: move-dot2 6s linear infinite;
+    }
+    @keyframes move-dot {
+        0%{
+            background-position: 0 0,50px 0,100px 0,150px 0;
+        }
+        30%{
+            background-position: 50px 0,0 0,100px 0,150px 0;
+        }
+        60%{
+            background-position: 50px 0, 100px 0,0 0,150px 0;
+        }
+        100%{
+            background-position: 50px 0,100px 0,150px 0,0 0;
+        }
+    }
+    @keyframes move-dot2 {
+        0%{
+            background-image: radial-gradient(circle,#0cf 15px,transparent),
+                radial-gradient(circle,grey 15px,transparent),
+                radial-gradient(circle,grey 15px,transparent),
+                radial-gradient(circle,grey 15px,transparent);
+        }
+        30%{
+            background-image: radial-gradient(circle,grey 15px,transparent),
+                radial-gradient(circle,red 15px,transparent),
+                radial-gradient(circle,grey 15px,transparent),
+                radial-gradient(circle,grey 15px,transparent);
+        }
+        60%{
+            background-image: radial-gradient(circle,grey 15px,transparent),
+                radial-gradient(circle,grey 15px,transparent),
+                radial-gradient(circle,yellow 15px,transparent),
+                radial-gradient(circle,grey 15px,transparent);
+        }
+        100%{
+            background-image: radial-gradient(circle,grey 15px,transparent),
+                radial-gradient(circle,grey 15px,transparent),
+                radial-gradient(circle,grey 15px,transparent),
+                radial-gradient(circle,green 15px,transparent);
+        }
+    }
+    /* 知识点：linear-gradient */
+    .bg-qi{
+        width: 200px;
+        height: 200px;
+        margin-top: 20px;
+        background-color:#eee;
+        background-image: linear-gradient(45deg,rgba(0,0,0,.25) 25%,transparent 0,transparent 75%,rgba(0,0,0,.25) 0),
+            linear-gradient(45deg,rgba(0,0,0,.25) 25%,transparent 0,transparent 75%,rgba(0,0,0,.25) 0);
+        background-position: 0 0,20px 20px;
+        background-size: 40px 40px;
+        box-shadow: 2px 2px 4px rgba(0,0,0,.4);
+    }
+    .bg-line-rand{
+        width: 480px;
+        height: 60px;
+        margin-top: 20px;
+        background-color: #eee;
+        background-image: linear-gradient(90deg,#fb3 11px,transparent 0),
+            linear-gradient(90deg,#ab4 23px,transparent 0),
+            linear-gradient(90deg,#655 41px,transparent 0);
+        background-size: 41px 100%,61px 100%,83px 100%;
+        box-shadow: 2px 2px 4px rgba(0,0,0,.4);
+    }
+    .bg-dot-rand{
+        width: 200px;
+        height: 200px;
+        margin-top: 20px;
+        background-color: #eee;
+        background-image: radial-gradient(circle,#fb3 5px,transparent 0),
+            radial-gradient(circle,#ab4 13px,transparent 0),
+            radial-gradient(circle,#655 31px,transparent 0);
+        background-repeat: no-repeat;
+        background-size: 101px 203px,147px 60px,373px 201px;
+        box-shadow: 2px 2px 4px rgba(0,0,0,.4);
+    }
+    .animate1{
+        animation: move 4s linear infinite;
+    }
+    .animate2{
+        animation: move2 4s linear infinite;
+    }
+    @keyframes move{
+        0%{
+            background-position: 0 0,0 0,0 0;
+        }
+        50%{
+            background-position: -10px 0,20px 0,30px 0;
+        }
+        100%{
+            background-position: 0 0,30px 0,10px 0;
+        }
+    }
+    @keyframes move2 {
+        0%{
+            background-position: 0 0,0 0,0 0;
+        }
+        50%{
+            background-position: -10px 30px,20px 0,-40px 80px;
+        }
+        100%{
+            background-position: 0 20px,60px -20px,10px 30px;
+        }
+    }
+    /* 知识点：linear-gradient */
+    .fold{
+        width: 200px;
+        height: 80px;
+        margin-top: 20px;
+        color: #fff;
+        line-height: 80px;
+        text-align: center;
+        background: linear-gradient(to left bottom,transparent 50%,rgba(0,0,0,.5) 0) no-repeat 100% 0 / 2em 2em,
+                linear-gradient(-135deg,transparent 1.4em,#06c 0);
+    }
+    .linear{
+        background: linear-gradient(to left bottom,transparent 50%,rgba(0,0,0,.5)) no-repeat 100% 0 / 2em 2em,
+                linear-gradient(-135deg,transparent 1.4em,#06c);
+    }
+    .fold-1{
+        width: 200px;
+        height: 80px;
+        margin-top: 20px;
+        line-height: 80px;
+        color: #fff;
+        border-radius: .5em;
+        text-align: center;
+        background: linear-gradient(-150deg,transparent 1.5em,#58a 0);
+        position: relative;
+    }
+    .fold-1::before{
+        content: "";
+        width: 1.73em;
+        height: 3em;
+        position: absolute;
+        top:0;
+        right:0;
+        background: linear-gradient(to left bottom,transparent 50%,rgba(0,0,0,.2) 0,rgba(0,0,0,.4)) 100% 0 no-repeat;
+        transform: translateY(-1.3em) rotate(-30deg);
+        transform-origin: bottom right;
+        border-bottom-left-radius: inherit;
+        box-shadow: -.2em .2em .3em -.1em rgba(0,0,0,.15);
+    }
+    /* 知识点：linear-gradient line-height background-origin */
+    .stripe-bg{
+        width: 200px;
+        padding: .5em;
+        margin-top: 20px;
+        line-height: 1.5em;
+        background: beige;
+        background-size: auto 3em;
+        /* content-box 背景图像相对于内容框来定位 */
+        background-origin: content-box; 
+        background-image: linear-gradient(rgba(0,0,0,.2) 50%,transparent 0);
+    }
+    .stripe-bg > p{
+        margin: 0;
+    }
+    /* 知识点：linear-gradient */
+    .my-line-default{
+        /* 默认下划线会将文字穿过 */
+        text-decoration:underline;
+    }
+    /* 自定义下划线不会将文字穿过 */
+    .my-line-define{
+        line-height: 1.4em;
+        background: linear-gradient(grey,grey) no-repeat;
+        background-size:100% 1px;
+        background-position: 0 1.25em;
+        text-shadow: .05em 0 #fff,-.05em 0 #fff;
+    }
